@@ -39,11 +39,17 @@ export async function login(credentials) {
 }; 
 
 
-export function getToken() {
+export function getToken() { // no async function needed here 
   // getItem returns null if there is no string 
   const token = localStorage.getItem('token'); 
   if (!token) return null; 
 
+  /* 
+    > console.log(atob(token.split('.')[1]));
+    > output:'"iat":1715096707,"exp":1715183107, {"user":{"_id":"663a49463cf4c3a63831d26b","name":"akyeshi","email":"akyeshi@gmail.com","createdAt":"2024-05-07T15:31:18.113Z","updatedAt":"2024-05-07T15:31:18.113Z","__v":0}}'
+    > console.log(JSON.parse(atob(token.split('.')[1]))); 
+    > output: 'iat:1715096707,exp:1715183107, {user:{_id:"663a49463cf4c3a63831d26b",name:"akyeshi",email:"akyeshi@gmail.com",createdAt:"2024-05-07T15:31:18.113Z",updatedAt:"2024-05-07T15:31:18.113Z",__v:0}}
+  */
   // obtain payload of the token (payload in javascript object literal)
   // payload object has properties i.e. {user}, exp, iat in ms 
   // user property on payload: {name: "Joe", email: "joe@gmail.com", _id: '234sdsdfsdff428", createdAt: "", updatedAt: ""}
@@ -54,9 +60,10 @@ export function getToken() {
     localStorage.removeItem('token'); 
     return null; 
   }
-  return token; 
+  return token;   // get user from token 
 }; 
 
+// get user from token 
 export function getUser() {
   const token = getToken(); 
   // if there's a token, return the user in the payload, otherwise return null 

@@ -30,7 +30,13 @@ Clone this repo to provide the starter code for a comprehensive MERN-Stack proje
 11. Remember that the Express server won’t start without error until the build folder used by Express is created by running:
  `npm run build`
 
-12. Have fun coding your new project and don’t forget to make frequent commits!
+12. Start Express server: 
+  `npx nodemon server.js`
+
+13. Start React server: 
+  `npm run start`
+
+14. Have fun coding your new project and don’t forget to make frequent commits!
 
 # Getting Started with Create React App
 
