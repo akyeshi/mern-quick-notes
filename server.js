@@ -18,6 +18,7 @@ app.use(require('./config/checkToken')); // middleware to verify token & assign 
 
 // API routes here before catchcall route below (map routes to controller actions)
 app.use('/api/users', require('./routes/api/users')); 
+app.use('/api/notes', require('./routes/api/notes')); 
 
 // catch all route that matches every GET request (ensure to mount API or other routes before it)
 // this will get a fullpage refresh or reload 

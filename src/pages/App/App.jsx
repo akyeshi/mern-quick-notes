@@ -7,6 +7,8 @@ import NavBar from '../../components/NavBar/NavBar';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import AuthPage from '../AuthPage/AuthPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+import NewNotePage from '../NewNotePage/NewNotePage';
+import AllNotesPage from '../AllNotesPage/AllNotesPage';
 
 export default function App() {
   // user = {name: 'Dorjee', email: 'dorjee@gmail.com', _id: '6636cfcfd3ee0ebd4cb33643', createdAt: '2024-05-05T00:16:15.806Z', updatedAt: '2024-05-05T00:16:15.806Z', …}
@@ -19,8 +21,7 @@ export default function App() {
       { user ? 
       <>
         <Routes>
-          <Route path="/orders/new" element={<NewOrderPage />} />
-          <Route path="/orders" element={<OrderHistoryPage />} />
+          <Route path="/notes" element={<AllNotesPage />} />
         </Routes>
       </>
       : 
