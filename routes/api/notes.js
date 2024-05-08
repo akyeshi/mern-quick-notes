@@ -12,9 +12,13 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 // POST /api/notes 
 router.post('/', notesCtrl.create); 
 
+// GET /api/notes
+router.get('/', notesCtrl.index); 
 
+// DELETE /api/notes/:id 
+router.delete('/:id', notesCtrl.deleteNote); 
 
-
-
+// UPDATE /api/notes/:id
+router.put('/:id', notesCtrl.updateNote); 
 
 module.exports = router; 
